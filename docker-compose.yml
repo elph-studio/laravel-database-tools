@@ -1,0 +1,19 @@
+services:
+  app:
+    image: ghcr.io/elph-studio/base-php-local:8.5
+    tty: true
+    user: "1000"
+    restart: "no"
+    ports:
+      - "127.0.0.1:8996:80"
+    volumes:
+      - .:/app
+    working_dir: /app
+    container_name: laravel_database_tools
+    networks:
+      - php_not_dead
+
+networks:
+  php_not_dead:
+    name: php_not_dead
+    external: true

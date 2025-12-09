@@ -1,0 +1,38 @@
+{
+    "name": "elph-studio/laravel-database-tools",
+    "type": "library",
+    "description": "Extended Laravel Database configuration",
+    "license": "MIT",
+    "keywords": ["database", "mysql", "seeder", "faker", "migration"],
+    "authors": [{
+        "name": "Elephant Studio",
+        "email": "developers@elph.studio",
+        "homepage": "https://www.elph.studio"
+    }],
+    "require": {
+        "php": "^8.5"
+    },
+    "require-dev": {
+        "elph-studio/laravel-testing-tools": "*",
+        "phpunit/phpunit": "12.*",
+        "mockery/mockery": "1.*",
+        "roave/security-advisories": "dev-latest",
+        "laravel/framework": "12.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elph\\LaravelDatabase\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests"
+        }
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
