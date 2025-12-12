@@ -1,0 +1,65 @@
+name: Pull Request
+on: [pull_request]
+
+jobs:
+  linting:
+    name: Linting tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.5
+          extensions: json, pdo
+          coverage: none
+
+      - name: Read .env file
+        uses: xom9ikk/dotenv@v2.3.0
+        with:
+          path: .github/
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v3
+        with:
+          composer-options: --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Run php-cs-fixer
+        run: vendor/bin/php-cs-fixer fix --config=${{ env.PHPCSFIXER_CONFIG }} --dry-run --verbose
+
+      - name: Run phpcs
+        run: vendor/bin/phpcs -p --standard=${{ env.PHPCS_CONFIG }} .
+
+  unit:
+    name: PHP Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.5
+          extensions: json, pdo
+          coverage: none
+
+      - name: Read .env file
+        uses: xom9ikk/dotenv@v2.3.0
+        with:
+          path: .github/
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v3
+        with:
+          composer-options: --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Prepare PHP Unit config
+        run: |
+          REAL_PATH=$(printf '%s\n' "$(pwd)" | sed 's/[\/&]/\\&/g')
+          sed -i "s/\/app/$REAL_PATH/g" ${{ env.PHPUNIT_CONFIG }}
+
+      - name: Run phpunit
+        run: vendor/bin/phpunit --config=${{ env.PHPUNIT_CONFIG }} --bootstrap=${{ env.PHPUNIT_BOOTSTRAP }}

@@ -13,7 +13,7 @@
         "php": "^8.5"
     },
     "require-dev": {
-        "elph-studio/laravel-testing-tools": "*",
+        "elph-studio/laravel-testing-tools": "^0.3",
         "phpunit/phpunit": "12.*",
         "mockery/mockery": "1.*",
         "roave/security-advisories": "dev-latest",
