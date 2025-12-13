@@ -10,6 +10,8 @@ use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Database\Seeder as IlluminateSeeder;
 use Illuminate\Support\Collection;
+use Symfony\Component\Console\Input\StringInput;
+use Symfony\Component\Console\Output\StreamOutput;
 
 /**
  * Extend this file in Application database/seeders/DatabaseSeeder.php and leave class empty.
@@ -24,9 +26,14 @@ class SeedersRunner extends IlluminateSeeder
         'database/seeders/DatabaseSeeder.php',
     ];
 
-    public function __construct(OutputStyle $output)
+    public function __construct()
     {
-        $this->setOutput($output);
+        $this->setOutput(
+            new OutputStyle(
+                new StringInput(''),
+                new StreamOutput(fopen('php://stdout', 'wb'))
+            )
+        );
     }
 
     // phpcs:disable OpaySniffs.Files.ForbiddenDumps
