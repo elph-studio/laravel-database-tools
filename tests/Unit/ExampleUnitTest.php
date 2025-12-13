@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Test\Unit;
 
-use Elph\LaravelTestingTools\Test\TestCase\UnitTestCase;
+use Elph\LaravelTesting\Test\TestCase\UnitTestCase;
 
 class ExampleUnitTest extends UnitTestCase
 {

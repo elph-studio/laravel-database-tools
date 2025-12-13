@@ -10,7 +10,8 @@
         "homepage": "https://www.elph.studio"
     }],
     "require": {
-        "php": "^8.5"
+        "php": "^8.5",
+        "elph-studio/laravel-helpers": "^0.1.1"
     },
     "require-dev": {
         "elph-studio/laravel-testing-tools": "^0.3",

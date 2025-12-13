@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Test\Feature;
 
-use Elph\LaravelTestingTools\Test\TestCase\FeatureTestCase;
+use Elph\LaravelTesting\Test\TestCase\FeatureTestCase;
 
 class ExampleFeatureTest extends FeatureTestCase
 {
