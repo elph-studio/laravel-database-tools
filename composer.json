@@ -41,5 +41,12 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Elph\\LaravelDatabase\\Provider\\MigrationProvider"
+            ]
+        }
     }
 }
