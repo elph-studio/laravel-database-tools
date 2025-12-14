@@ -37,11 +37,6 @@ class MigrationProvider extends BaseMigrationServiceProvider
         'MigrateRollback' => RollbackCommand::class,
     ];
 
-    public function test(): void
-    {
-
-    }
-
     public function boot(): void
     {
         $this
