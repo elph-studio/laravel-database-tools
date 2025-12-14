@@ -15,9 +15,6 @@
     },
     "require-dev": {
         "elph-studio/laravel-testing-tools": "^0.3",
-        "phpunit/phpunit": "12.*",
-        "mockery/mockery": "1.*",
-        "roave/security-advisories": "dev-latest",
         "laravel/framework": "12.*"
     },
     "autoload": {
@@ -29,6 +26,14 @@
         "psr-4": {
             "Test\\": "tests"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php vendor/elph-studio/laravel-helpers/src/Helper/Plain/VendorFixer.php"
+        ],
+        "post-update-cmd": [
+            "@php vendor/elph-studio/laravel-helpers/src/Helper/Plain/VendorFixer.php"
+        ]
     },
     "minimum-stability": "stable",
     "config": {
