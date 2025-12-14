@@ -45,7 +45,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MigrationProvider"
+                "Elph\\LaravelDatabase\\Provider\\MigrationProvider"
             ]
         }
     }
