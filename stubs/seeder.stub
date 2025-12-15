@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Elph\LaravelDatabase\Database\Seeder;
+use $MODEL_NAMESPACE$;
+
+class $NAME$ extends Seeder
+{
+    public function getModel(): $MODEL_NAME$
+    {
+        return new $MODEL_NAME$();
+    }
+
+    public function run(): void
+    {
+        $this->getModel()::factory()->create();
+    }
+}

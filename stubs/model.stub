@@ -1,0 +1,24 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Elph\LaravelDatabase\Model\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use $MODULE_NAMESPACE$\$MODULE$\Database\Faker\$NAME$Faker;
+
+/**
+ * @property string $identifier
+ */
+class $CLASS$ extends Model
+{
+    use HasFactory;
+
+    protected $casts = [];
+
+    protected static function newFactory(): $NAME$Faker
+    {
+        return $NAME$Faker::new();
+    }
+}

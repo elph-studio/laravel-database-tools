@@ -1,0 +1,34 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Elph\LaravelDatabase\Repository\Repository;
+use Illuminate\Database\Eloquent\Collection;
+use $MODEL_NAMESPACE$;
+
+/**
+ * @method $MODEL_NAME$ save($MODEL_NAME$ $$MODEL_VARIABLE$)
+ * @method bool delete($MODEL_NAME$ $$MODEL_VARIABLE$)
+ */
+class $NAME$ extends Repository
+{
+    public function get(string $identifier): $MODEL_NAME$|null
+    {
+        return $MODEL_NAME$::where('identifier', $identifier)->first();
+    }
+
+    public function getById(int $id): $MODEL_NAME$|null
+    {
+        return $MODEL_NAME$::find($id);
+    }
+
+    /**
+     * @return Collection<int, $MODEL_NAME$>
+     */
+    public function getAll(): Collection
+    {
+        return $MODEL_NAME$::all();
+    }
+}
