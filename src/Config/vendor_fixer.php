@@ -11,10 +11,10 @@
 $config = require '/app/vendor/elph-studio/laravel-helpers/src/Config/vendor_fixer.php';
 
 $config['replace_content']['file/path'] = [
-[
-'from' => '...',
-'to' => '...',
-],
+    [
+        'from' => '...',
+        'to' => '...',
+    ],
 ];
 
 return $config;
