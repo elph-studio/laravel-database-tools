@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Elph\LaravelDatabase\Faker\Faker;
+use $MODEL_NAMESPACE$;
+
+class $NAME$ extends Faker
+{
+    protected $model = $MODEL_NAME$::class;
+
+    public function definition(): array
+    {
+        return [
+            'identifier' => fake()->uuid,
+        ];
+    }
+}

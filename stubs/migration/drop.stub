@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+use Elph\LaravelDatabase\Migration\Migration;
+use Elph\LaravelDatabase\Migration\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class () extends Migration {
+    public function up(): void
+    {
+        Schema::dropIfExists('$TABLE$');
+    }
+};
