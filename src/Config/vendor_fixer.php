@@ -11,10 +11,10 @@
 $config = require '/app/vendor/elph-studio/laravel-helpers/src/Config/vendor_fixer.php';
 
 $config['replace_content']['file/path'] = [
-    [
-        'from' => '...',
-        'to' => '...',
-    ],
+[
+'from' => '...',
+'to' => '...',
+],
 ];
 
 return $config;
@@ -27,8 +27,11 @@ return [
     'replace_content' => [
         'vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php' => [
             [
-                'from' => 'use Closure;',
-                'to' => "use Closure;\nuse Elph\LaravelDatabase\Migration\Blueprint;",
+                'from' => "use Closure;\nuse Illuminate\Container\Container;",
+                'to' => "use Closure;
+// Next line was hardcoded by vendor/elph-studio/laravel-database-tools/src/Config/vendor_fixer.php
+use Elph\LaravelDatabase\Migration\Blueprint;
+use Illuminate\Container\Container;",
             ],
         ],
     ],
